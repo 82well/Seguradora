@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelOco1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fea42e58-488d-4613-a0fa-860d8f5fe000">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     e4_ocorrencias.`ID` AS e4_ocorrencias_ID,
+     e4_ocorrencias.`DATA` AS e4_ocorrencias_DATA,
+     e4_ocorrencias.`DESCRICAO` AS e4_ocorrencias_DESCRICAO
+FROM
+     `e4_ocorrencias` e4_ocorrencias]]>
+	</queryString>
+	<field name="e4_ocorrencias_ID" class="java.lang.Integer"/>
+	<field name="e4_ocorrencias_DATA" class="java.sql.Date"/>
+	<field name="e4_ocorrencias_DESCRICAO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="153" y="38" width="235" height="41" uuid="c5ffc768-9371-4b17-94c7-dc4ff4d81ba3"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELA DE OCORRÊNCIA]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="447" y="5" width="100" height="20" uuid="8873b7d7-cd3c-4664-b418-cdcb2def6fc9"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="5" width="80" height="20" uuid="e510b7d8-5e63-4a04-b22a-9bf757dae772"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="84" y="5" width="40" height="20" uuid="ce81eaf3-46af-4c0f-b316-9c891a892a82"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="480" y="29" width="48" height="48" uuid="2c31acab-8b99-49b7-924b-f43f937c49a8"/>
+				<imageExpression><![CDATA["C:\\Users\\Windows.lite\\Downloads\\4213473_auto_car_parking_rental_transport_icon.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="47" y="31" width="48" height="48" uuid="e1890045-f0dc-4381-89fd-9eeef3f92b37"/>
+				<imageExpression><![CDATA["C:\\Users\\Windows.lite\\Downloads\\4213473_auto_car_parking_rental_transport_icon.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="2" width="100" height="33" uuid="bce1d445-3457-4fcf-9962-28094437b88f"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="118" y="2" width="100" height="33" uuid="3ad9dcc8-2a54-4b15-862d-d9cad272c82c"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="2" width="127" height="33" uuid="5580622d-6d95-49cf-b8a9-45374bd867f5"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRICAO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="26" width="100" height="20" uuid="1d5c62a1-68a5-4c5b-bf37-dec0d4450725"/>
+				<textFieldExpression><![CDATA[$F{e4_ocorrencias_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="26" width="100" height="20" uuid="6bbe0a6c-b7a8-475e-8519-88ca7cb9e799"/>
+				<textFieldExpression><![CDATA[$F{e4_ocorrencias_DATA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="287" y="24" width="100" height="20" uuid="6019b309-247e-4d54-9b19-edb6c658c2a0"/>
+				<textFieldExpression><![CDATA[$F{e4_ocorrencias_DESCRICAO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelAuto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e5748f4a-b0ad-42db-98e2-e1b03c044ece">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     e1_automovel.`COD` AS e1_automovel_COD,
+     e1_automovel.`PLACA` AS e1_automovel_PLACA,
+     e1_automovel.`RENAVAM` AS e1_automovel_RENAVAM,
+     e1_automovel.`MODELO` AS e1_automovel_MODELO
+FROM
+     `e1_automovel` e1_automovel]]>
+	</queryString>
+	<field name="e1_automovel_COD" class="java.lang.Integer"/>
+	<field name="e1_automovel_PLACA" class="java.lang.String"/>
+	<field name="e1_automovel_RENAVAM" class="java.math.BigDecimal"/>
+	<field name="e1_automovel_MODELO" class="java.lang.String"/>
+	<group name="e1_automovel_COD">
+		<groupExpression><![CDATA[$F{e1_automovel_COD}]]></groupExpression>
+	</group>
+	<group name="e1_automovel_RENAVAM">
+		<groupExpression><![CDATA[$F{e1_automovel_RENAVAM}]]></groupExpression>
+	</group>
+	<group name="e1_automovel_MODELO">
+		<groupExpression><![CDATA[$F{e1_automovel_MODELO}]]></groupExpression>
+	</group>
+	<group name="e1_automovel_PLACA">
+		<groupExpression><![CDATA[$F{e1_automovel_PLACA}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="114" splitType="Stretch">
+			<staticText>
+				<reportElement x="123" y="32" width="328" height="47" uuid="e7d522cb-3e0e-489f-8a1d-85ecd95a9fca"/>
+				<textElement>
+					<font fontName="Arial Black" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE AUTOMÓVEIS]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="453" y="2" width="100" height="20" uuid="aba1738d-d9be-4fba-a14f-49ed9aa58f0c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="2" width="80" height="20" uuid="404403eb-4bbb-4ba8-acc6-e9c235be602c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="82" y="2" width="40" height="20" uuid="ab2a3cb1-f811-4683-942e-346767cf0639"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="466" y="25" width="48" height="48" uuid="f67cc091-e9b9-416f-abaa-2e5458116bf2"/>
+				<imageExpression><![CDATA["C:\\Users\\Windows.lite\\Downloads\\4213473_auto_car_parking_rental_transport_icon.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="34" y="25" width="48" height="48" uuid="d7aa4420-dc36-4078-9d32-17dee8dce4ae"/>
+				<imageExpression><![CDATA["C:\\Users\\Windows.lite\\Downloads\\4213473_auto_car_parking_rental_transport_icon.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="10" y="90" width="527" height="1" uuid="253c76f1-b9db-47a2-8c13-a5774bbfe241"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="2" width="45" height="20" uuid="a1abc786-9b65-406f-9dae-479945e8ccbe"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="2" width="100" height="20" uuid="9f908038-528f-4886-839d-42312923b09c"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RENAVAM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="2" width="100" height="20" uuid="cd0895b5-7573-4014-a4c8-3dd78e7f5c86"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PLACA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="2" width="100" height="20" uuid="ab166ae3-b4be-4377-afca-75d885cd81fc"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MODELO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="3" y="21" width="45" height="20" uuid="aa475977-a3d3-4c64-be45-482ea058816c"/>
+				<textFieldExpression><![CDATA[$F{e1_automovel_COD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="21" width="100" height="20" uuid="69e71623-b02a-46dc-a70b-53b18dff8c6a"/>
+				<textFieldExpression><![CDATA[$F{e1_automovel_RENAVAM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="22" width="100" height="20" uuid="9ee668e6-6d47-4895-9991-acc8df4a8e03"/>
+				<textFieldExpression><![CDATA[$F{e1_automovel_PLACA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="22" width="100" height="20" uuid="3ecf86bb-984b-43ff-9b6c-8b022767a33a"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{e1_automovel_MODELO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
